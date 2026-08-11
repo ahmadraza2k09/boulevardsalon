@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Scissors, Palette, Waves, Wind } from "lucide-react";
+import { useEffect, useState } from "react";
 import { PillLink } from "@/components/site/PillLink";
 import heroHome from "@/assets/hero-home.jpg";
 import editorialCap from "@/assets/editorial-cap.jpg";
@@ -47,6 +48,64 @@ const services = [
     copy: "Freshly washed and flawlessly styled, because sometimes, you just need that extra oomph.",
   },
 ];
+
+const testimonials = [
+  {
+    quote:
+      "Shaylynne really brought what I had in my head to reality! I had hair below my butt that was boring and bland. She truly made cutting off 12 inches of hair feel better, lot the receptionist (wish I remembered her name) was also very personable and helpful throughout.",
+    author: "Cheyanne Fransen",
+  },
+  {
+    quote:
+      "Best balayage I've ever had — the colour melts so naturally and three months later it still looks salon-fresh. The whole team makes you feel like a regular from the moment you walk in.",
+    author: "Priya Sharma",
+  },
+  {
+    quote:
+      "I came in with a photo and walked out with hair better than the photo. My tape-in extensions blend perfectly and nobody can tell where my hair ends and they begin. Worth every penny.",
+    author: "Madison Clarke",
+  },
+];
+
+function Testimonials() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const current = testimonials[index] ?? testimonials[0]!;
+
+  return (
+    <section className="bg-sand px-6 py-20">
+      <div className="mx-auto max-w-3xl bg-background px-8 py-14 text-center">
+        <span className="deco-title text-2xl text-gold">”</span>
+        <h2 className="script-title mt-2 text-3xl">Testimonials</h2>
+        <div key={index} className="animate-in fade-in duration-1000">
+          <p className="mt-6 min-h-20 text-xs italic leading-relaxed text-muted-foreground">
+            "{current.quote}"
+          </p>
+          <p className="mt-4 text-xs tracking-wide">—{current.author}</p>
+        </div>
+        <div className="mt-6 flex justify-center gap-2">
+          {testimonials.map((t, i) => (
+            <button
+              key={t.author}
+              aria-label={`Show testimonial ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={`h-1.5 w-1.5 rounded-full transition-colors ${
+                i === index ? "bg-gold" : "bg-border"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Index() {
   return (
@@ -130,19 +189,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-sand px-6 py-20">
-        <div className="mx-auto max-w-3xl bg-background px-8 py-14 text-center">
-          <span className="deco-title text-2xl text-gold">”</span>
-          <h2 className="script-title mt-2 text-3xl">Testimonials</h2>
-          <p className="mt-6 text-xs italic leading-relaxed text-muted-foreground">
-            "Shaylynne really brought what I had in my head to reality! I had hair below my butt
-            that was boring and bland. She truly made cutting off 12 inches of hair feel better,
-            lot the receptionist (wish I remembered her name) was also very personable and helpful
-            throughout."
-          </p>
-          <p className="mt-4 text-xs tracking-wide">—Cheyanne Fransen</p>
-        </div>
-      </section>
+      <Testimonials />
 
       <section className="relative">
         <img

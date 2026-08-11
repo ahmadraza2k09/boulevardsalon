@@ -159,7 +159,7 @@ const products = [
 function Shop() {
   return (
     <>
-      <section className="bg-forest px-6 py-3 text-center text-[0.65rem] uppercase tracking-[0.2em] text-forest-foreground">
+      <section className="bg-forest px-4 py-2.5 text-center text-[0.6rem] uppercase tracking-[0.12em] text-forest-foreground sm:px-6 sm:py-3 sm:text-[0.65rem] sm:tracking-[0.2em]">
         Free standard delivery on orders over $99 within Canada
       </section>
 
@@ -169,12 +169,18 @@ function Shop() {
           alt="Boulevard salon retail shelves"
           width={1408}
           height={1104}
-          className="h-[320px] w-full object-cover"
+          className="h-[260px] w-full object-cover sm:h-[320px]"
         />
         <div className="absolute inset-0 bg-forest/45" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-forest-foreground">
-          <p className="text-xs uppercase tracking-[0.3em] opacity-90">Have you met AXIS-Y yet?</p>
-          <h1 className="mt-3 deco-title text-4xl">Conquer Dark Spots and Hyperpigmentation</h1>
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-forest-foreground sm:px-6">
+          <p className="font-display text-lg italic tracking-wide opacity-95 sm:text-xl">
+            Have you met AXIS-Y yet?
+          </p>
+          <h1 className="mt-3 deco-title text-2xl leading-snug sm:text-3xl md:text-4xl">
+            Conquer Dark Spots
+            <br />
+            and Hyperpigmentation
+          </h1>
         </div>
       </section>
 

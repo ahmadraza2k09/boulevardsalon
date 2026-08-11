@@ -26,35 +26,35 @@ const groups = [
   {
     title: "Styling",
     items: [
-      ["Special Event Styling", "Updos, glam waves and red-carpet finishes for weddings, grads and big nights."],
-      ["Blowout", "A wash, blow-dry and polish that lasts for days."],
-      ["Braids", "From boho plaits to intricate crowns, built to hold."],
-      ["Curls & Waves", "Heat styling tailored to your texture and length."],
+      ["Special Event Styling", "Updos, glam waves and red-carpet finishes for weddings, grads and big nights.", "From $85"],
+      ["Blowout", "A wash, blow-dry and polish that lasts for days.", "From $55"],
+      ["Braids", "From boho plaits to intricate crowns, built to hold.", "From $65"],
+      ["Curls & Waves", "Heat styling tailored to your texture and length.", "From $60"],
     ],
   },
   {
     title: "Extensions",
     items: [
-      ["Tape-In Extensions", "Lightweight, seamless length with a natural blend."],
-      ["Weft Extensions", "Hand-tied or machine wefts for serious volume."],
-      ["Weft Extensions Tightening", "Maintenance move-ups to keep everything sitting right."],
+      ["Tape-In Extensions", "Lightweight, seamless length with a natural blend.", "From $250"],
+      ["Weft Extensions", "Hand-tied or machine wefts for serious volume.", "From $350"],
+      ["Weft Extensions Tightening", "Maintenance move-ups to keep everything sitting right.", "From $120"],
     ],
   },
   {
     title: "Perms & Texture Services",
     items: [
-      ["Full Perm", "Lasting body and curl through the whole head."],
-      ["Partial Perm", "Targeted texture where you want the lift."],
-      ["Chemical Straightening", "Smooth, sleek and frizz-free for months."],
+      ["Full Perm", "Lasting body and curl through the whole head.", "From $140"],
+      ["Partial Perm", "Targeted texture where you want the lift.", "From $95"],
+      ["Chemical Straightening", "Smooth, sleek and frizz-free for months.", "From $220"],
     ],
   },
   {
     title: "Smoothing & Treatments",
     items: [
-      ["Keratin Treatment", "Cuts drying time and humidity frizz dramatically."],
-      ["Express Keratin Treatment", "A quicker smoothing option between full services."],
-      ["Deep Conditioning", "Intensive mask to restore softness and shine."],
-      ["Scalp Detox", "A clarifying reset for a healthy, balanced scalp."],
+      ["Keratin Treatment", "Cuts drying time and humidity frizz dramatically.", "From $180"],
+      ["Express Keratin Treatment", "A quicker smoothing option between full services.", "From $110"],
+      ["Deep Conditioning", "Intensive mask to restore softness and shine.", "From $45"],
+      ["Scalp Detox", "A clarifying reset for a healthy, balanced scalp.", "From $50"],
     ],
   },
 ];
@@ -86,14 +86,17 @@ function Services() {
           <section key={g.title} className="mb-14">
             <h2 className="deco-title text-center text-3xl text-gold">{g.title}</h2>
             <div className="mt-8 border-t border-border">
-              {g.items.map(([name, copy]) => (
+              {g.items.map(([name, copy, price]) => (
                 <details key={name} className="group border-b border-border">
-                  <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-sm">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-sm">
                     {name}
-                    <ChevronDown
-                      className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180"
-                      strokeWidth={1.3}
-                    />
+                    <span className="ml-auto flex shrink-0 items-center gap-3">
+                      <span className="text-xs tracking-wide text-gold">{price}</span>
+                      <ChevronDown
+                        className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180"
+                        strokeWidth={1.3}
+                      />
+                    </span>
                   </summary>
                   <p className="pb-5 text-xs leading-relaxed text-muted-foreground">{copy}</p>
                 </details>
