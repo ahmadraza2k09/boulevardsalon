@@ -41,7 +41,7 @@ function Book() {
           className="h-[300px] w-full object-cover"
         />
         <div className="absolute inset-0 bg-forest/40" />
-        <h1 className="absolute inset-0 flex items-center justify-center deco-title text-4xl uppercase text-gold">
+        <h1 className="absolute inset-0 flex items-center justify-center deco-title text-4xl uppercase text-white">
           Book Now
         </h1>
       </section>
