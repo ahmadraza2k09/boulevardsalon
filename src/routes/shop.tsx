@@ -41,6 +41,94 @@ const brands = [
   "VT Cosmetics",
 ];
 
+function brandInitials(name: string) {
+  const words = name.replace(/[.&]/g, " ").split(/[\s-]+/).filter(Boolean);
+  return words
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+}
+
+function BrandLogo({ name }: { name: string }) {
+  return (
+    <svg viewBox="0 0 64 64" className="h-16 w-16 text-foreground/70" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" strokeWidth="1.2" />
+      <circle cx="32" cy="32" r="25.5" fill="none" stroke="currentColor" strokeWidth="0.5" />
+      <text
+        x="32"
+        y="33"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fill="currentColor"
+        fontSize="17"
+        fontFamily="'Cormorant Garamond', serif"
+        letterSpacing="1.5"
+      >
+        {brandInitials(name)}
+      </text>
+    </svg>
+  );
+}
+
+function ProductImage({ name, variant }: { name: string; variant: number }) {
+  const initial = (name[0] ?? "B").toUpperCase();
+  const shapes = [
+    // dropper bottle
+    <g key="dropper">
+      <rect x="26" y="10" width="12" height="8" rx="1.5" fill="currentColor" opacity="0.75" />
+      <path d="M30 18h4l1.5 8h-7L30 18Z" fill="currentColor" opacity="0.35" />
+      <rect x="22" y="26" width="20" height="30" rx="4" fill="currentColor" opacity="0.18" />
+      <rect x="22" y="26" width="20" height="30" rx="4" fill="none" stroke="currentColor" strokeWidth="1" />
+    </g>,
+    // pump bottle
+    <g key="pump">
+      <rect x="30" y="8" width="10" height="4" rx="1" fill="currentColor" opacity="0.75" />
+      <rect x="29" y="12" width="6" height="8" fill="currentColor" opacity="0.75" />
+      <rect x="23" y="20" width="18" height="36" rx="3" fill="currentColor" opacity="0.18" />
+      <rect x="23" y="20" width="18" height="36" rx="3" fill="none" stroke="currentColor" strokeWidth="1" />
+    </g>,
+    // shampoo bottle
+    <g key="shampoo">
+      <rect x="28" y="9" width="8" height="6" rx="1" fill="currentColor" opacity="0.75" />
+      <path
+        d="M26 15h12c2 3 4 6 4 12v24a5 5 0 0 1-5 5H27a5 5 0 0 1-5-5V27c0-6 2-9 4-12Z"
+        fill="currentColor"
+        opacity="0.18"
+      />
+      <path
+        d="M26 15h12c2 3 4 6 4 12v24a5 5 0 0 1-5 5H27a5 5 0 0 1-5-5V27c0-6 2-9 4-12Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+      />
+    </g>,
+    // jar
+    <g key="jar">
+      <rect x="20" y="24" width="24" height="8" rx="2" fill="currentColor" opacity="0.75" />
+      <rect x="21" y="32" width="22" height="24" rx="3" fill="currentColor" opacity="0.18" />
+      <rect x="21" y="32" width="22" height="24" rx="3" fill="none" stroke="currentColor" strokeWidth="1" />
+    </g>,
+  ];
+  return (
+    <div className="mb-5 flex aspect-square items-center justify-center bg-secondary">
+      <svg viewBox="0 0 64 64" className="h-36 w-36 text-forest" aria-hidden="true">
+        {shapes[variant % shapes.length]}
+        <text
+          x="32"
+          y="43"
+          textAnchor="middle"
+          fill="currentColor"
+          fontSize="9"
+          fontFamily="'Cormorant Garamond', serif"
+        >
+          {initial}
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 const products = [
   {
     name: "AXIS-Y Vegan Collagen Eye Serum 10 mL",
@@ -101,7 +189,8 @@ function Shop() {
         <h2 className="deco-title text-center text-2xl">Featured Brands</h2>
         <ul className="mx-auto mt-8 grid max-w-[1100px] grid-cols-2 gap-6 text-center text-sm text-muted-foreground sm:grid-cols-3 lg:grid-cols-5">
           {brands.map((b) => (
-            <li key={b} className="py-3 tracking-wide">
+            <li key={b} className="flex flex-col items-center gap-3 py-3 tracking-wide">
+              <BrandLogo name={b} />
               {b}
             </li>
           ))}
@@ -110,9 +199,9 @@ function Shop() {
 
       <section className="bg-sand px-6 py-16">
         <div className="mx-auto grid max-w-[1200px] gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {products.map((p) => (
+          {products.map((p, i) => (
             <article key={p.name} className="bg-background p-6">
-              <div className="mb-5 aspect-square bg-secondary" />
+              <ProductImage name={p.name} variant={i} />
               <h3 className="text-sm leading-snug">{p.name}</h3>
               <p className="mt-1 text-sm text-gold">{p.price}</p>
               <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{p.copy}</p>

@@ -19,7 +19,7 @@
  */
 
 @theme inline {
-  --font-display: "Bodoni Moda", serif;
+  --font-display: "Cormorant Garamond", serif;
   --font-script: "Parisienne", cursive;
   --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
@@ -170,10 +170,9 @@
 
 @utility deco-title {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-stretch: 75%;
-  letter-spacing: 0.02em;
-  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
 }
 
 @utility script-title {
@@ -183,23 +182,7 @@
 }
 
 @utility nav-link {
-  position: relative;
-  padding-bottom: 0.35rem;
   font-size: 0.875rem;
   letter-spacing: 0.02em;
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.35;
-    transition: opacity 0.25s ease;
-  }
-  &:hover::after {
-    opacity: 1;
-  }
 }
 

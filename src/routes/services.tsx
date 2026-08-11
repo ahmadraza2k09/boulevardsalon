@@ -72,10 +72,12 @@ function Services() {
         />
         <div className="absolute inset-0 bg-forest/25" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
-          <h1 className="deco-title text-4xl uppercase text-gold md:text-5xl">
+          <h1 className="deco-title text-4xl uppercase text-white md:text-5xl">
             Cuts, Colour &amp; Care
           </h1>
-          <PillLink to="/book">Book Now</PillLink>
+          <PillLink to="/book" className="text-white">
+            Book Now
+          </PillLink>
         </div>
       </section>
 

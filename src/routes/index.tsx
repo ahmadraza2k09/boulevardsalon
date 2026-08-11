@@ -29,17 +29,17 @@ const services = [
   {
     icon: Scissors,
     title: "Haircuts",
-    copy: "Gender-neutral pricing, always. Whether it's a sleek bob, textured pixie, or long layers, we cut to fit your style. Add a deep conditioning mask to any cut for just $25 — because healthy hair is happy hair.",
+    copy: "Gender-neutral pricing, always. From sleek bobs to long layers, we cut to fit your style.",
   },
   {
     icon: Palette,
     title: "Colouring",
-    copy: "Your hair, your canvas. From rich brunettes to icy blondes, vibrant fashion colours, and sun-kissed balayage, we bring artistry to every shade.",
+    copy: "Rich brunettes, icy blondes, vivid fashion colours and balayage — artistry in every shade.",
   },
   {
     icon: Waves,
     title: "Extensions",
-    copy: "If the dream is longer and fuller hair, then take a seat. From subtle volume to mermaid-length locks, our stylists create a custom extension plan just for you.",
+    copy: "Longer, fuller hair with a custom extension plan built just for you.",
   },
   {
     icon: Wind,
@@ -64,14 +64,16 @@ function Index() {
           <div className="max-w-2xl text-center text-forest-foreground">
             <h1 className="script-title text-5xl md:text-6xl">Meet me at Boulevard</h1>
             <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed opacity-95">
-              Boulevard is where great hair days start and confidence takes centre stage. It's 'your
-              hair, your vibe' and our stylists are here to help you find it. Want a subtle glow-up
-              or a full-on reinvention? Let's make magic happen. We don't just do hair; we create
-              looks that slay. Ready to feel unstoppable?
+              Boulevard is where great hair days start and confidence takes centre stage. Subtle
+              glow-up or full-on reinvention — our stylists are here to make it happen.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
-              <PillLink to="/book">Book Now</PillLink>
-              <PillLink to="/gift-cards">Gift Cards</PillLink>
+              <PillLink to="/book" variant="gold">
+                Book Now
+              </PillLink>
+              <PillLink to="/gift-cards" variant="outline">
+                Gift Cards
+              </PillLink>
             </div>
           </div>
         </div>
@@ -80,7 +82,7 @@ function Index() {
       <section className="grid md:grid-cols-2">
         <div className="flex flex-col justify-center bg-forest px-8 py-16 text-forest-foreground md:px-14">
           <p className="script-title text-3xl text-forest-foreground/90">Yes Please,</p>
-          <h2 className="deco-title -mt-4 text-4xl uppercase text-gold md:text-5xl">
+          <h2 className="deco-title mt-2 text-3xl uppercase leading-[1.35] tracking-[0.08em] text-gold md:text-4xl">
             Margaritas,
             <br />
             Romance Novels
@@ -158,8 +160,12 @@ function Index() {
             Let's meet again, and again and again — and keep you feeling fab.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <PillLink to="/book">Book Now</PillLink>
-            <PillLink to="/gift-cards">Gift Cards</PillLink>
+            <PillLink to="/book" variant="gold">
+              Book Now
+            </PillLink>
+            <PillLink to="/gift-cards" variant="outline">
+              Gift Cards
+            </PillLink>
           </div>
         </div>
       </section>

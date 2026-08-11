@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Search, User, ShoppingBag, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Logo } from "./Logo";
 
 const links = [
   { to: "/", label: "Home" },
@@ -17,11 +18,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-cream/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5">
-        <Link to="/" className="shrink-0 text-center leading-none">
-          <span className="block deco-title text-lg tracking-[0.28em]">BOULEVARD</span>
-          <span className="block text-[0.55rem] tracking-[0.42em] text-muted-foreground">
-            HAIR SALON
-          </span>
+        <Link to="/" className="flex shrink-0 items-center gap-3 leading-none">
+          <Logo className="h-9 w-9 text-foreground" />
+          <span className="script-title text-2xl leading-none">Boulevard Salon</span>
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">
